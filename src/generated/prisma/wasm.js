@@ -128,6 +128,51 @@ exports.Prisma.UserScalarFieldEnum = {
   createdAt: 'createdAt'
 };
 
+exports.Prisma.SubscriptionScalarFieldEnum = {
+  id: 'id',
+  userId: 'userId',
+  plan: 'plan',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
+exports.Prisma.AutomationScalarFieldEnum = {
+  id: 'id',
+  name: 'name',
+  active: 'active',
+  userId: 'userId',
+  createdAt: 'createdAt'
+};
+
+exports.Prisma.TriggerScalarFieldEnum = {
+  id: 'id',
+  type: 'type',
+  automationId: 'automationId'
+};
+
+exports.Prisma.ActionScalarFieldEnum = {
+  id: 'id',
+  action: 'action',
+  smartAIEnabled: 'smartAIEnabled',
+  message: 'message',
+  commentReply: 'commentReply',
+  aiPrompt: 'aiPrompt',
+  automationId: 'automationId'
+};
+
+exports.Prisma.PostScalarFieldEnum = {
+  id: 'id',
+  caption: 'caption',
+  media: 'media',
+  automationId: 'automationId'
+};
+
+exports.Prisma.KeywordScalarFieldEnum = {
+  id: 'id',
+  word: 'word',
+  automationId: 'automationId'
+};
+
 exports.Prisma.SortOrder = {
   asc: 'asc',
   desc: 'desc'
@@ -142,10 +187,30 @@ exports.Prisma.NullsOrder = {
   first: 'first',
   last: 'last'
 };
+exports.SUBSRIPTION_PLAN = exports.$Enums.SUBSRIPTION_PLAN = {
+  FREE: 'FREE',
+  PRO: 'PRO'
+};
 
+exports.ACTIONS = exports.$Enums.ACTIONS = {
+  MESSAGE: 'MESSAGE',
+  COMMENT_REPLY: 'COMMENT_REPLY'
+};
+
+exports.MEDIA_TYPE = exports.$Enums.MEDIA_TYPE = {
+  IMAGE: 'IMAGE',
+  VIDEO: 'VIDEO',
+  CAROUSEL_ALBUM: 'CAROUSEL_ALBUM'
+};
 
 exports.Prisma.ModelName = {
-  User: 'User'
+  User: 'User',
+  Subscription: 'Subscription',
+  Automation: 'Automation',
+  Trigger: 'Trigger',
+  Action: 'Action',
+  Post: 'Post',
+  Keyword: 'Keyword'
 };
 
 /**

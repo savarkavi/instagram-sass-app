@@ -15,10 +15,85 @@ datasource db {
 }
 
 model User {
-  id      String  @id @default(uuid())
-  clerkId String  @unique
-  email   String  @unique
-  name    String?
+  id           String        @id @default(uuid())
+  clerkId      String        @unique
+  email        String        @unique
+  name         String?
+  subscription Subscription?
+  automations  Automation[]
 
   createdAt DateTime @default(now())
+}
+
+model Subscription {
+  id     String           @id @default(uuid())
+  user   User             @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId String           @unique
+  plan   SUBSRIPTION_PLAN @default(FREE)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @default(now())
+}
+
+model Automation {
+  id       String    @id @default(uuid())
+  name     String    @default("Untitled")
+  active   Boolean   @default(false)
+  user     User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId   String    @unique
+  trigger  Trigger?
+  post     Post?
+  actions  Action[]
+  keywords Keyword[]
+
+  createdAt DateTime @default(now())
+}
+
+model Trigger {
+  id           String     @id @default(uuid())
+  type         String
+  automation   Automation @relation(fields: [automationId], references: [id], onDelete: Cascade)
+  automationId String     @unique
+}
+
+model Action {
+  id             String     @id @default(uuid())
+  action         ACTIONS    @default(MESSAGE)
+  smartAIEnabled Boolean    @default(false)
+  message        String?
+  commentReply   String?
+  aiPrompt       String?
+  automation     Automation @relation(fields: [automationId], references: [id], onDelete: Cascade)
+  automationId   String     @unique
+}
+
+model Post {
+  id           String     @id @default(uuid())
+  caption      String
+  media        MEDIA_TYPE
+  automation   Automation @relation(fields: [automationId], references: [id], onDelete: Cascade)
+  automationId String     @unique
+}
+
+model Keyword {
+  id           String     @id @default(uuid())
+  word         String
+  automation   Automation @relation(fields: [automationId], references: [id], onDelete: Cascade)
+  automationId String     @unique
+}
+
+enum SUBSRIPTION_PLAN {
+  FREE
+  PRO
+}
+
+enum ACTIONS {
+  MESSAGE
+  COMMENT_REPLY
+}
+
+enum MEDIA_TYPE {
+  IMAGE
+  VIDEO
+  CAROUSEL_ALBUM
 }
