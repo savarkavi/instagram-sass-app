@@ -1,3 +1,4 @@
+import Navbar from "@/components/navbar";
 import Sidebar from "@/components/sidebar";
 
 type Props = {
@@ -11,7 +12,8 @@ const Layout = async ({ children, params }: Props) => {
   return (
     <div className="p-3">
       <Sidebar slug={slug} />
-      {children}
+      <Navbar slug={slug} />
+      <div className="p-8 lg:ml-[250px]">{children}</div>
     </div>
   );
 };
