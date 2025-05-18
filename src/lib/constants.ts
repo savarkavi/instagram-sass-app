@@ -40,3 +40,32 @@ export const SIDEBAR_MENU: SidebarMenu[] = [
     icon: SettingsIcon,
   },
 ];
+
+export const PRICING_PLANS = [
+  {
+    id: uuid(),
+    label: "FREE",
+    description:
+      "Use simple features to manage your audience. Great for testing.",
+    price: "₹0",
+    features: [
+      "No credit card required",
+      "Boost engagement with target responses",
+      "Automate comment replies",
+      "2 active integrations",
+    ],
+  },
+  {
+    id: uuid(),
+    label: "PRO",
+    description:
+      "Use Advanced and A.I powered features to scale your bussiness.",
+    price: "₹1199",
+    features: [
+      "Everything included from free plan",
+      "A.I powered target responses",
+      "Advanced analytics and insights",
+      "Unlimited integrations",
+    ],
+  },
+];
