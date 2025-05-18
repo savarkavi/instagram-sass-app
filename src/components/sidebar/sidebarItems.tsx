@@ -8,6 +8,8 @@ type SidebarItemsProps = {
 };
 
 const SidebarItems = ({ currentRoute, slug }: SidebarItemsProps) => {
+  console.log(currentRoute);
+
   return (
     <div className="flex w-full flex-col gap-4">
       {SIDEBAR_MENU.map((item) => {
