@@ -1,7 +1,12 @@
+import MainBreadCrumb from "@/components/main-bread-crumb";
 import React from "react";
 
 const Page = () => {
-  return <div>Page</div>;
+  return (
+    <div>
+      <MainBreadCrumb />
+    </div>
+  );
 };
 
 export default Page;
