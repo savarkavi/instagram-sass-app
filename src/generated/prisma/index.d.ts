@@ -9388,19 +9388,19 @@ export namespace Prisma {
 
   export type AutomationWhereUniqueInput = Prisma.AtLeast<{
     id?: string
-    userId?: string
     AND?: AutomationWhereInput | AutomationWhereInput[]
     OR?: AutomationWhereInput[]
     NOT?: AutomationWhereInput | AutomationWhereInput[]
     name?: StringFilter<"Automation"> | string
     active?: BoolFilter<"Automation"> | boolean
+    userId?: StringFilter<"Automation"> | string
     createdAt?: DateTimeFilter<"Automation"> | Date | string
     user?: XOR<UserScalarRelationFilter, UserWhereInput>
     trigger?: XOR<TriggerNullableScalarRelationFilter, TriggerWhereInput> | null
     post?: XOR<PostNullableScalarRelationFilter, PostWhereInput> | null
     actions?: ActionListRelationFilter
     keywords?: KeywordListRelationFilter
-  }, "id" | "userId">
+  }, "id">
 
   export type AutomationOrderByWithAggregationInput = {
     id?: SortOrder
@@ -9496,7 +9496,6 @@ export namespace Prisma {
 
   export type ActionWhereUniqueInput = Prisma.AtLeast<{
     id?: string
-    automationId?: string
     AND?: ActionWhereInput | ActionWhereInput[]
     OR?: ActionWhereInput[]
     NOT?: ActionWhereInput | ActionWhereInput[]
@@ -9505,8 +9504,9 @@ export namespace Prisma {
     message?: StringNullableFilter<"Action"> | string | null
     commentReply?: StringNullableFilter<"Action"> | string | null
     aiPrompt?: StringNullableFilter<"Action"> | string | null
+    automationId?: StringFilter<"Action"> | string
     automation?: XOR<AutomationScalarRelationFilter, AutomationWhereInput>
-  }, "id" | "automationId">
+  }, "id">
 
   export type ActionOrderByWithAggregationInput = {
     id?: SortOrder
@@ -9603,13 +9603,13 @@ export namespace Prisma {
 
   export type KeywordWhereUniqueInput = Prisma.AtLeast<{
     id?: string
-    automationId?: string
     AND?: KeywordWhereInput | KeywordWhereInput[]
     OR?: KeywordWhereInput[]
     NOT?: KeywordWhereInput | KeywordWhereInput[]
     word?: StringFilter<"Keyword"> | string
+    automationId?: StringFilter<"Keyword"> | string
     automation?: XOR<AutomationScalarRelationFilter, AutomationWhereInput>
-  }, "id" | "automationId">
+  }, "id">
 
   export type KeywordOrderByWithAggregationInput = {
     id?: SortOrder
