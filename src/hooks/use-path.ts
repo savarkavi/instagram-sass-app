@@ -13,5 +13,5 @@ export const usePath = () => {
     currentRoute = pathSplit[pathSplit.length - 1];
   }
 
-  return { currentRoute };
+  return { currentRoute, pathname };
 };
