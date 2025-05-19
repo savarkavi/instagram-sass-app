@@ -6,6 +6,8 @@ import {
   WorkflowIcon,
 } from "lucide-react";
 import { v4 as uuid } from "uuid";
+import { FaInstagram } from "react-icons/fa";
+import { IconType } from "react-icons/lib";
 
 export type SidebarMenu = {
   id: string;
@@ -41,7 +43,15 @@ export const SIDEBAR_MENU: SidebarMenu[] = [
   },
 ];
 
-export const PRICING_PLANS = [
+export type PricingPlans = {
+  id: string;
+  label: string;
+  description: string;
+  price: string;
+  features: string[];
+};
+
+export const PRICING_PLANS: PricingPlans[] = [
   {
     id: uuid(),
     label: "FREE",
@@ -67,5 +77,30 @@ export const PRICING_PLANS = [
       "Advanced analytics and insights",
       "Unlimited integrations",
     ],
+  },
+];
+
+export type AutomationTrigger = {
+  id: string;
+  type: string;
+  label: string;
+  description: string;
+  icon: IconType;
+};
+
+export const AUTOMATION_TRIGGERS: AutomationTrigger[] = [
+  {
+    id: uuid(),
+    type: "COMMENT",
+    label: "User comments on my post",
+    description: "Select if you want to automate comments on your post",
+    icon: FaInstagram,
+  },
+  {
+    id: uuid(),
+    type: "DM",
+    label: "User sends me a DM",
+    description: "Select if you want to automate DMs",
+    icon: FaInstagram,
   },
 ];
